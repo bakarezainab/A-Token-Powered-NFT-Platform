@@ -2,6 +2,10 @@
 
 A decentralized application where users can mint NFTs and creators earn ERC20 tokens as rewards.
 
+## The Contract Adress is 0x346811cA80f5F630afc5F8C965fF721f233506BC
+
+## Check Sepolia Lisk Blockscout Here https://sepolia-blockscout.lisk.com/tx/0x86caac12caea109e5e2397d3ae45407aa996235b64d4ca36a383b203091309fc
+
 ## Features
 
 - **NFT Minting**: Create and mint ERC721 NFTs with metadata stored on IPFS

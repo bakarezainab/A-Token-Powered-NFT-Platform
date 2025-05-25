@@ -15,7 +15,7 @@ const CONTRACT_ABI = [
 ]
 
 // Replace with your deployed contract address
-const CONTRACT_ADDRESS = "0x..." // Your deployed contract address
+const CONTRACT_ADDRESS = "0x346811cA80f5F630afc5F8C965fF721f233506BC" // Your deployed contract address
 
 export function useContract() {
   const { signer, provider } = useWallet()
