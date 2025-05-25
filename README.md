@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Token-Powered NFT Platform
 
-## Getting Started
+A decentralized application where users can mint NFTs and creators earn ERC20 tokens as rewards.
 
-First, run the development server:
+## Features
 
-```bash
+- **NFT Minting**: Create and mint ERC721 NFTs with metadata stored on IPFS
+- **Creator Rewards**: Earn 100 Creator Tokens (CRT) for each NFT minted
+- **Wallet Integration**: Connect with MetaMask on Lisk Sepolia testnet
+- **NFT Gallery**: Browse all minted artworks
+- **Reward Tracking**: View your earning history and token balance
+
+## Smart Contract
+
+The platform uses a single smart contract that implements:
+- ERC20 token (CreatorToken - CRT)
+- ERC721 NFT collection (ArtNFT)
+- Automatic reward distribution to creators
+
+## Setup Instructions
+
+### 1. Deploy Smart Contract
+
+1. Install dependencies:
+\`\`\`bash
+npm install @openzeppelin/contracts
+\`\`\`
+
+2. Deploy to Lisk Sepolia:
+\`\`\`bash
+# Using Hardhat or Remix
+# Deploy CreatorRewardPlatform.sol
+\`\`\`
+
+3. Update contract address in `.env.local`
+
+### 2. Frontend Setup
+
+1. Install dependencies:
+\`\`\`bash
+npm install
+\`\`\`
+
+2. Configure environment variables:
+\`\`\`bash
+cp .env.example .env.local
+# Add your Pinata API keys and contract address
+\`\`\`
+
+3. Run development server:
+\`\`\`bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+\`\`\`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. IPFS Configuration
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Sign up for [Pinata](https://pinata.cloud/) and get your API keys:
+- Add API key to `NEXT_PUBLIC_PINATA_API_KEY`
+- Add secret key to `NEXT_PUBLIC_PINATA_SECRET_KEY`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Usage
 
-## Learn More
+1. **Connect Wallet**: Connect your MetaMask wallet to Lisk Sepolia
+2. **Mint NFT**: Upload an image, add metadata, and mint your NFT
+3. **Earn Rewards**: Receive 100 CRT tokens automatically when minting
+4. **Browse Gallery**: View all minted NFTs and their creators
+5. **Track Rewards**: Monitor your token balance and earning history
 
-To learn more about Next.js, take a look at the following resources:
+## Contract Functions
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### ERC20 Functions
+- `balanceOf(address)`: Get token balance
+- `transfer(address, uint256)`: Transfer tokens
+- `approve(address, uint256)`: Approve token spending
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### ERC721 Functions
+- `mintNFT(address, string)`: Mint new NFT with metadata URI
+- `getCreator(uint256)`: Get creator of specific NFT
+- `totalSupply()`: Get total number of minted NFTs
 
-## Deploy on Vercel
+### Reward System
+- Automatic 100 CRT reward per NFT mint
+- Rewards distributed from contract's token reserve
+- Event emission for tracking rewards
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Frontend (Vercel)
+\`\`\`bash
+npm run build
+# Deploy to Vercel
+\`\`\`
+
+### Smart Contract (Lisk Sepolia)
+- Use Remix IDE or Hardhat
+- Ensure sufficient testnet ETH for deployment
+- Verify contract on Lisk Sepolia explorer
+
+## Technologies Used
+
+- **Frontend**: Next.js, React, TypeScript, Tailwind CSS
+- **Blockchain**: Solidity, OpenZeppelin contracts
+- **Web3**: ethers.js for blockchain interaction
+- **Storage**: IPFS via Pinata for metadata and images
+- **Network**: Lisk Sepolia testnet
+
+## License
+
+MIT License
